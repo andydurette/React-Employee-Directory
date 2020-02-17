@@ -8,7 +8,7 @@ const EmployeeSearch = () => {
   const handleChange = e => {
     setSearching( searching = e.target.value);
   };
-  
+
   return(
     <React.Fragment>
       <header>
@@ -18,7 +18,7 @@ const EmployeeSearch = () => {
       <section className="filterBar">
         <input 
           type="text" 
-          placeholder="Filter by worker name..."
+          placeholder="Filter by employee name..."
           value={searching}
           onChange={handleChange}
         />

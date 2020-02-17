@@ -10,6 +10,10 @@ const [employees, setEmployees] = useState({});
 const [fetching, setFetching] = useState(false); 
 // Set search data
 const [searching, setSearching] = useState(""); 
+// Set alphabetical sort data
+const [sorting, setSorting] = useState("alpha");
+// Set image src img
+const [sortImg, setSortImg] = useState("/img/arrow-up.svg"); 
 
 const fetchEmployeeData = async () => {
   let response = await fetch('https://randomuser.me/api/?results=200&nat=us');
@@ -25,7 +29,13 @@ useEffect(() => {
 
 
   return(
-    <AppContext.Provider value={{ employeeData: [employees, setEmployees], fetch: [fetching, setFetching], search: [searching, setSearching]}}>
+    <AppContext.Provider value={{ 
+      employeeData: [employees, setEmployees], 
+      fetch: [fetching, setFetching], 
+      search: [searching, setSearching], 
+      sort: [sorting, setSorting],
+      sortImgSrc: [sortImg, setSortImg]
+      }}>
       {props.children}
     </AppContext.Provider>
   );

@@ -9,13 +9,22 @@ const EmployeeTable = () => {
   const [employeeDatas, /*setEmployeeDatas*/] =  employeeData;
   const {fetch} = useContext(AppContext);
   const [fetchings, /*setFetchings*/] =  fetch;
+  const {sort} = useContext(AppContext);
+  const [sorting, setSorting] = sort;
+  const {sortImgSrc} = useContext(AppContext);
+  const [sortImg, setSortImg] = sortImgSrc;
+
+  const alphaCheck = (e) =>{
+    setSorting( sorting === "alpha" ? "notAlpha": "alpha");
+    setSortImg( sortImg === "/img/arrow-up.svg" ? "/img/arrow-down.svg": "/img/arrow-up.svg");
+  }
 
   return(
     <table >
       <tbody>
       <tr>
         <th>Picture</th>
-        <th>Name</th>
+        <th className="alpha" onClick={alphaCheck}>Name <img src={sortImg} alt="Sort Arrow" width="13px" height="13px"/></th>
         <th>Email</th>
         <th>Age</th>
         <th>Location</th>
@@ -24,10 +33,22 @@ const EmployeeTable = () => {
         <tr className="employee"></tr>
         : (
       <React.Fragment>
+        {/* Grabs all employee data and filters it for searchfield value */}
        {employeeDatas.filter((employee) => { 
          let name = employee.name.first + ' ' + employee.name.last;
         return name.toLowerCase().includes(search[0].toLowerCase())
-       }).map((employee, index) => (
+       })
+        /* Sorts the data for alphabetical forwards for backwards */
+       .sort((a,b) =>{
+         if (sorting === "alpha"){
+          return (a.name.first > b.name.first) ? 1 : -1;
+         }else{
+          return (a.name.first < b.name.first) ? 1 : -1;
+         }
+        
+       })
+       /* Loops the content left and send it to the front end  */
+       .map((employee, index) => (
     <tr className="employee" key={index}>
       <td className="employee-img"><img src={employee.picture.medium}  alt=""/></td>
       <td className="employee-name">{employee.name.first + ' ' + employee.name.last }</td>
