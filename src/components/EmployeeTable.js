@@ -41,9 +41,9 @@ const EmployeeTable = () => {
         /* Sorts the data for alphabetical forwards for backwards */
        .sort((a,b) =>{
          if (sorting === "alpha"){
-          return (a.name.first > b.name.first) ? 1 : -1;
+          return (a.name.first + ' ' + a.name.last > b.name.first + ' ' + b.name.last) ? 1 : -1;
          }else{
-          return (a.name.first < b.name.first) ? 1 : -1;
+          return (a.name.first + ' ' + a.name.last < b.name.first + ' ' + b.name.last) ? 1 : -1;
          }
         
        })
