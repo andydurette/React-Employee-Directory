@@ -1,5 +1,6 @@
 import React from 'react';
 import {AppProvider} from './components/AppContext';
+import EmployeeSearch from './components/EmployeeSearch';
 import EmployeeTable from './components/EmployeeTable';
 
 function App() {
@@ -7,7 +8,8 @@ function App() {
   return (
     <AppProvider> 
       <div className="App">
-        <EmployeeTable/>
+        <EmployeeSearch />
+        <EmployeeTable />
       </div>
     </AppProvider> 
   );
