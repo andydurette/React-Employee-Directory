@@ -26,7 +26,7 @@ const EmployeeTable = () => {
       <React.Fragment>
        {employeeDatas.filter((employee) => { 
          let name = employee.name.first + ' ' + employee.name.last;
-        return name.includes(search[0])
+        return name.toLowerCase().includes(search[0].toLowerCase())
        }).map((employee, index) => (
     <tr className="employee" key={index}>
       <td className="employee-img"><img src={employee.picture.medium}  alt=""/></td>
