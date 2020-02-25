@@ -50,11 +50,11 @@ const EmployeeTable = () => {
        /* Loops the content left and send it to the front end  */
        .map((employee, index) => (
     <tr className="employee" key={index}>
-      <td className="employee-img"><img src={employee.picture.medium}  alt=""/></td>
+      <td className="employee-img"><img src={employee.picture}  alt=""/></td>
       <td className="employee-name">{employee.name.first + ' ' + employee.name.last }</td>
       <td className="employee-email">{employee.email}</td>
-      <td className="employee-age">{employee.dob.age}</td>
-      <td className="employee-location">{employee.location.state}</td>
+      <td className="employee-age">{employee.age}</td>
+      <td className="employee-location">{employee.address}</td>
     </tr>
 ))}
       </React.Fragment>

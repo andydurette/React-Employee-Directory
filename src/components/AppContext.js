@@ -16,14 +16,18 @@ const [sorting, setSorting] = useState("alpha");
 const [sortImg, setSortImg] = useState("/img/arrow-up.svg"); 
 
 const fetchEmployeeData = async () => {
-  let response = await fetch('https://randomuser.me/api/?results=200&nat=us');
+  let response = await fetch('json/userData.json');
   let data = await response.json();
-  setEmployees(data.results);
+  console.log(data);
+  setEmployees(data);
   setFetching( fetching === false ? true: false);
 }
 
 useEffect(() => {
-  fetchEmployeeData();
+  fetchEmployeeData()
+  .catch(function(error) {
+    console.error(error);
+  });
 },[]);
 
 
