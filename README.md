@@ -1,7 +1,7 @@
 # React-Employee-Directory
 Assignment 19 of my UfT Bootcamp React Employee Directory.
 
-This assignment focused upon taking data from an API and processing it  with filtering and sorting displaying it to the user. Instead of using pop drilling I decided to use reacts content providing state to components without using class components.
+This assignment focused upon taking data from an API and processing it with filtering and sorting displaying it to the user. Instead of using pop drilling I decided to use reacts content providing state to components without using class components.
 
 The user is able to:
 
